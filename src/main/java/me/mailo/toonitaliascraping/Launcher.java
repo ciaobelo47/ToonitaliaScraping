@@ -2,6 +2,6 @@ package me.mailo.toonitaliascraping;
 
 public class Launcher {
     public static void main(String[] args) {
-        ScrapingCLI.scrape("");
+        ScrapingCLI.scrape("https://toonitalia.green/teen-titans-go/");
     }
 }

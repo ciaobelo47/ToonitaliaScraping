@@ -1,25 +1,23 @@
 package me.mailo.toonitaliascraping;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import me.mailo.log.LogLevel;
 import me.mailo.log.Logger;
 import org.openqa.selenium.*;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.awt.*;
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
+import java.io.*;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.nio.charset.StandardCharsets;
 import java.time.Duration;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.Scanner;
-import java.util.StringTokenizer;
+import java.util.*;
 
 public class ScrapingCLI {
     static Logger logger = new Logger("JWebScraping");
@@ -27,6 +25,7 @@ public class ScrapingCLI {
     static FirefoxOptions opt = new FirefoxOptions();
     static WebDriver driver;
     static WebDriverWait wait;
+    static Gson gson = new GsonBuilder().setPrettyPrinting().create();
 
     public static void scrape(String url) {
         logger.log(LogLevel.WARN, "Starting in headless mode...", true);
@@ -36,7 +35,6 @@ public class ScrapingCLI {
 
         try {
             logger.log(LogLevel.INFO, "Trying to open initial page...", true);
-            url = "https://toonitalia.green/teen-titans-go/";
             driver.get(url);
 
             WebElement table = wait.until(ExpectedConditions.presenceOfElementLocated(By.id("hostlinks")));
@@ -52,6 +50,8 @@ public class ScrapingCLI {
             logger.log(LogLevel.INFO, "Insert the number of the episode: ", false);
             int choice = sc.nextInt();
             System.out.println();
+
+            saveLastChoice(driver.getTitle(), choice);
 
             logger.log(LogLevel.INFO, "Trying to get the url encrypter link...", true);
             WebElement ep = tableRows.get(choice);
@@ -71,41 +71,43 @@ public class ScrapingCLI {
         }
     }
 
-    public static void getfromUrlEncr(String url) throws IOException, URISyntaxException, InterruptedException {
+    private static void getfromUrlEncr(String url) throws IOException, URISyntaxException, InterruptedException {
         logger.log(LogLevel.INFO, "Trying to open url encrypter link...", true);
         driver.get(url);
-        loadCookiesfromFile(driver, "cookies.txt");
+        loadCookiesfromFile(driver);
         logger.log(LogLevel.INFO, "Refreshing page with loaded cookies...", true);
         driver.navigate().refresh();
 
         logger.log(LogLevel.INFO, "Identifying button and click on it...", true);
-        Thread.sleep(3000);
-        WebElement btn = wait.until(ExpectedConditions.presenceOfElementLocated(By.id("buttok")));
-        btn.click();
-        logger.log(LogLevel.INFO, "Button Clicked!", true);
-        getfromUrlVideo();
+        WebElement a = wait.until(ExpectedConditions.presenceOfNestedElementLocatedBy(By.id("ad_space"), By.tagName("a")));
+        String videoUrl = a.getDomAttribute("href");
+        logger.log(LogLevel.DEBUG, "HREF: " + a.getDomAttribute("href"), true);
+
+        getfromUrlVideo(videoUrl);
     }
 
-    public static void getfromUrlVideo() throws URISyntaxException, IOException {
-        logger.log(LogLevel.DEBUG, "Video URL: " + driver.getCurrentUrl(), true);
+    private static void getfromUrlVideo(String url) throws URISyntaxException, IOException {
+        logger.log(LogLevel.DEBUG, "Video URL: " + url, true);
+
+        driver.get(url);
 
         WebElement div = wait.until(ExpectedConditions.presenceOfElementLocated(By.id("iframe-container")));
         logger.log(LogLevel.DEBUG, "Video embed URL: " + div.findElement(By.tagName("iframe")).getDomAttribute("src"), true);
         openLink(div.findElement(By.tagName("iframe")).getDomAttribute("src"));
     }
 
-    public static void openLink(String url) throws URISyntaxException, IOException {
+    private static void openLink(String url) throws URISyntaxException, IOException {
         logger.log(LogLevel.INFO, "Opening Browser...", true);
         Desktop desktop = Desktop.getDesktop();
         desktop.browse(new URI(url));
     }
 
-    public static void loadCookiesfromFile(WebDriver drv, String cookiesName) {
+    private static void loadCookiesfromFile(WebDriver drv) {
         logger.log(LogLevel.INFO, "Trying to load cookies...", true);
         int cookiesAdded = 0;
         int linesSkipped = 0;
 
-        try (BufferedReader reader = new BufferedReader(new InputStreamReader(Launcher.class.getResourceAsStream(cookiesName), StandardCharsets.UTF_8))) {
+        try (BufferedReader reader = new BufferedReader(new InputStreamReader(Launcher.class.getResourceAsStream("cookies.txt"), StandardCharsets.UTF_8))) {
             String line;
             while ((line = reader.readLine()) != null) {
                 if (line.trim().isEmpty() || line.startsWith("#")) {
@@ -155,6 +157,29 @@ public class ScrapingCLI {
                 }
             }
             logger.log(LogLevel.DEBUG, "Loading completed! Cookies loaded: " + cookiesAdded + " ; Lines Skipped/Wrong: " + linesSkipped, true);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    /**
+     * <h1>!! Experimental !!</h1>
+     *
+     * @param show
+     * @param episodeIndex
+     */
+    private static void saveLastChoice(String show, int episodeIndex) {
+        HashMap<String, String> toSave = new HashMap<>();
+        toSave.put("show", show);
+        toSave.put("lastEpisode", String.valueOf(episodeIndex));
+
+        try {
+            File saveFile = new File("history.json");
+            PrintWriter pw = new PrintWriter(saveFile);
+
+            logger.log(LogLevel.INFO, "Writing history...", true);
+            pw.print(gson.toJson(toSave));
+            pw.close();
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
