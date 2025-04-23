@@ -1,9 +1,0 @@
-# Netscape HTTP Cookie File
-# https://curl.haxx.se/rfc/cookie_spec.html
-# This is a generated file! Do not edit.
-
-uprot.net	FALSE	/msf	FALSE	1745190486	uprot_session_px3	1
-.uprot.net	TRUE	/	TRUE	1776640072	cf_clearance	Z7JXpnWYS7Hf3kNIlNGsJyNQSsYgzhoCUtU5zp.nO3I-1745104072-1.2.1.1-jImiHIfBv0lcM3ZiJvWFkaSMACGDRVHf0K1PTpcUVdWdDGOahKSLqSB3McXPKacNWPeBBv7v8ZTvevbIFYCiCtvsIJoYYvOkqx7qZOEJFQ1Cm7u.ZULm1zKejjNzLhLU971NOTxnrqwFKnEMH0LwoEzSjpfz22ggiYrpx2XrWabiD0vs88JlI2c0bJ_NpnBqrjQAONa4SyezES0N7y5uX8psLXXSw5AlsG0ZVOHtbK5FCrmEV5l.mSZODc6LNj6akXHgX4009YmjerNk9VKVGSdo6XIEBq2Ohls1BwLgJyTBngDYY7VJEy077HupubPawKcMuQY8R_PuJZJ_b7I0sJOxRmpyLr6M_ito6Us1K8s
-uprot.net	FALSE	/	FALSE	1749489244	uprot_session	1
-.uprot.net	TRUE	/	TRUE	1745536086	captcha	1a2fe60481bd1d1b12d9fffcb541231c
-uprot.net	FALSE	/	TRUE	0	PHPSESSID	qo1mjkbpu5ku6ulbga86bnatfj
