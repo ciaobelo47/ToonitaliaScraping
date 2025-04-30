@@ -2,6 +2,7 @@ package me.mailo.toonitaliascraping;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import com.google.gson.stream.JsonReader;
 import me.mailo.log.LogLevel;
 import me.mailo.log.Logger;
 import org.openqa.selenium.*;
@@ -246,9 +247,10 @@ public class ScrapingCLI {
      * @param episodeIndex
      */
     private static void saveLastChoice(String show, int episodeIndex) {
-        HashMap<String, String> toSave = new HashMap<>();
-        toSave.put("show", show);
-        toSave.put("lastEpisode", String.valueOf(episodeIndex));
+        HashMap<String, HashMap<String, Integer>> toSave = new HashMap<>();
+        HashMap<String, Integer> ep = new HashMap<>();
+        ep.put("episodeIndex", episodeIndex);
+        toSave.put(show, ep);
 
         try {
             File saveFile = new File("history.json");
@@ -260,5 +262,20 @@ public class ScrapingCLI {
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
+    }
+
+    private static String getLastChoice(String show) {
+        try {
+            JsonReader jr = new JsonReader(new FileReader("history.json"));
+            String element = jr.getPath();
+
+            System.out.println(element);
+            jr.close();
+
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+
+        return "";
     }
 }
