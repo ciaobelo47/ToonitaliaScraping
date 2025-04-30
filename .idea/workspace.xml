@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="0b862792-225b-4ef0-baef-3a55cde2c2d2" name="Changes" comment="Updated pom.xml">
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/mailo/toonitaliascraping/ScrapingCLI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/mailo/toonitaliascraping/ScrapingCLI.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="PREVIOUS_COMMIT_AUTHORS">
+      <list>
+        <option value="ciaobelo47" />
+      </list>
+    </option>
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="master" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="SIGN_OFF_COMMIT" value="true" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;ciaobelo47&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/ciaobelo47/ToonitaliaScraping.git&quot;,
+    &quot;accountId&quot;: &quot;1f4e0f5a-9b74-480d-9340-3ebd5ad963f3&quot;
+  }
+}</component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 3
+}</component>
+  <component name="ProjectId" id="2vXsJ82sYowLDrksfTkkYSuShu3" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.Launcher.executor&quot;: &quot;Run&quot;,
+    &quot;Application.PORCODIOP.executor&quot;: &quot;Run&quot;,
+    &quot;Maven.JWebScraping [package].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.ToonitaliaScraping [package].executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/milod/Workspaces_tarocchi/JWebScraping&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;SDKs&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.25632185&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
+  }
+}</component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\milod\Workspaces_tarocchi\JWebScraping\target\classes\me\mailo\jwebscraping" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\milod\Workspaces_tarocchi\JWebScraping\src\main\resources\me\mailo\jwebscraping" />
+      <recent name="C:\Users\milod\Workspaces_tarocchi\JWebScraping\src\main\resources" />
+      <recent name="C:\Users\milod\Workspaces_tarocchi\JWebScraping\src\main\java\me\mailo\jwebscraping" />
+      <recent name="C:\Users\milod\Workspaces_tarocchi\JWebScraping\target\classes" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="Launcher" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="me.mailo.toonitaliascraping.Launcher" />
+      <module name="ToonitaliaScraping" />
+      <extension name="de.eudaemon.ideaswag.SwingspectorExtension">
+        <Swingspector>
+          <keystroke code="59" modifiers="130" />
+          <active value="false" />
+          <timeout>5.0</timeout>
+        </Swingspector>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="0b862792-225b-4ef0-baef-3a55cde2c2d2" name="Changes" comment="" />
+      <created>1744302680766</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1744302680766</updated>
+    </task>
+    <task id="LOCAL-00001" summary="First Commit">
+      <option name="closed" value="true" />
+      <created>1744556881433</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1744556881433</updated>
+    </task>
+    <task id="LOCAL-00002" summary="First Commit">
+      <option name="closed" value="true" />
+      <created>1744557044350</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1744557044350</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Modified Version in pom.xml">
+      <option name="closed" value="true" />
+      <created>1744657655651</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1744657655651</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Added Experimental History Feature, some bug fixes">
+      <option name="closed" value="true" />
+      <created>1745104362204</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1745104362204</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Added cookie renew feature, got rid of integrated cookies.txt, updated some paths">
+      <option name="closed" value="true" />
+      <created>1745431483394</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1745431483394</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Updated pom.xml">
+      <option name="closed" value="true" />
+      <created>1745513815859</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1745513815859</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
+    <servers />
+  </component>
+  <component name="UpdateCopyrightCheckinHandler">
+    <option name="UPDATE_COPYRIGHT" value="true" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="First Commit" />
+    <MESSAGE value="Modified Version in pom.xml" />
+    <MESSAGE value="Added Experimental History Feature, some bug fixes" />
+    <MESSAGE value="Added cookie renew feature, got rid of integrated cookies.txt, updated some paths" />
+    <MESSAGE value="Updated pom.xml" />
+    <option name="LAST_COMMIT_MESSAGE" value="Updated pom.xml" />
+    <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
+    <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
+  </component>
+</project>
