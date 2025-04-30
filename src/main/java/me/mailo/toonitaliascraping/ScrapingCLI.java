@@ -20,22 +20,28 @@ import java.time.Duration;
 import java.util.*;
 
 public class ScrapingCLI {
-    static Logger logger = new Logger("JWebScraping");
+    static Logger logger = Launcher.getLogger();
     static Scanner sc = new Scanner(System.in);
     static FirefoxOptions opt = new FirefoxOptions();
     static WebDriver driver;
     static WebDriverWait wait;
     static Gson gson = new GsonBuilder().setPrettyPrinting().create();
+    static boolean headless = true;
 
     public static void scrape(String url) {
-        logger.log(LogLevel.WARN, "Starting in headless mode...", true);
-        opt.addArguments("--headless");
+        if (headless) {
+            logger.log(LogLevel.WARN, "Starting in headless mode...", true);
+            opt.addArguments("--headless");
+        }
+
         driver = new FirefoxDriver(opt);
         wait = new WebDriverWait(driver, Duration.ofSeconds(5));
 
         try {
             logger.log(LogLevel.INFO, "Trying to open initial page...", true);
             driver.get(url);
+
+            Thread.sleep(100000);
 
             WebElement table = wait.until(ExpectedConditions.presenceOfElementLocated(By.id("hostlinks")));
             ArrayList<WebElement> tableRows = (ArrayList<WebElement>) table.findElements(By.tagName("tr"));
@@ -62,6 +68,8 @@ public class ScrapingCLI {
             getfromUrlEncr(videoUrl.getDomAttribute("href"));
 
         } catch (NoSuchElementException e) {
+            throw new RuntimeException(e);
+        } catch (InterruptedException e) {
             throw new RuntimeException(e);
         } finally {
             if (driver != null) {
