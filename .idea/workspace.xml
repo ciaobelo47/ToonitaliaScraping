@@ -4,9 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0b862792-225b-4ef0-baef-3a55cde2c2d2" name="Changes" comment="Updated pom.xml">
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/mailo/toonitaliascraping/ScrapingCLI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/mailo/toonitaliascraping/ScrapingCLI.java" afterDir="false" />
+    <list default="true" id="0b862792-225b-4ef0-baef-3a55cde2c2d2" name="Changes" comment="added project setting files">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -156,7 +155,23 @@
       <option name="project" value="LOCAL" />
       <updated>1745513815859</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Updated pom.xml">
+      <option name="closed" value="true" />
+      <created>1746007886635</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1746007886635</updated>
+    </task>
+    <task id="LOCAL-00008" summary="added project setting files">
+      <option name="closed" value="true" />
+      <created>1746008000717</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1746008000717</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="UpdateCopyrightCheckinHandler">
@@ -179,7 +194,8 @@
     <MESSAGE value="Added Experimental History Feature, some bug fixes" />
     <MESSAGE value="Added cookie renew feature, got rid of integrated cookies.txt, updated some paths" />
     <MESSAGE value="Updated pom.xml" />
-    <option name="LAST_COMMIT_MESSAGE" value="Updated pom.xml" />
+    <MESSAGE value="added project setting files" />
+    <option name="LAST_COMMIT_MESSAGE" value="added project setting files" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
