@@ -6,6 +6,9 @@
   <component name="ChangeListManager">
     <list default="true" id="0b862792-225b-4ef0-baef-3a55cde2c2d2" name="Changes" comment="added project setting files">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/mailo/toonitaliascraping/Launcher.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/mailo/toonitaliascraping/Launcher.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/mailo/toonitaliascraping/ScrapingCLI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/mailo/toonitaliascraping/ScrapingCLI.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -55,9 +58,11 @@
   </component>
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
+    &quot;Application.Launcher [no-headless].executor&quot;: &quot;Run&quot;,
     &quot;Application.Launcher.executor&quot;: &quot;Run&quot;,
     &quot;Application.PORCODIOP.executor&quot;: &quot;Run&quot;,
     &quot;Maven.JWebScraping [package].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.ToonitaliaScraping [clean].executor&quot;: &quot;Run&quot;,
     &quot;Maven.ToonitaliaScraping [package].executor&quot;: &quot;Run&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager&quot;: &quot;true&quot;,
@@ -82,7 +87,22 @@
       <recent name="C:\Users\milod\Workspaces_tarocchi\JWebScraping\target\classes" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Application.Launcher">
+    <configuration name="Launcher [no-headless]" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="me.mailo.toonitaliascraping.Launcher" />
+      <module name="ToonitaliaScraping" />
+      <option name="PROGRAM_PARAMETERS" value="no-headless" />
+      <extension name="de.eudaemon.ideaswag.SwingspectorExtension">
+        <Swingspector>
+          <keystroke code="59" modifiers="130" />
+          <active value="false" />
+          <timeout>5.0</timeout>
+        </Swingspector>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="Launcher" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="me.mailo.toonitaliascraping.Launcher" />
       <module name="ToonitaliaScraping" />
@@ -97,6 +117,10 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <list>
+      <item itemvalue="Application.Launcher" />
+      <item itemvalue="Application.Launcher [no-headless]" />
+    </list>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -171,7 +195,15 @@
       <option name="project" value="LOCAL" />
       <updated>1746008000717</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="added project setting files">
+      <option name="closed" value="true" />
+      <created>1746199076972</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1746199076972</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="UpdateCopyrightCheckinHandler">

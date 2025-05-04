@@ -41,9 +41,7 @@ public class ScrapingCLI {
             logger.log(LogLevel.INFO, "Trying to open initial page...", true);
             driver.get(url);
 
-            Thread.sleep(100000);
-
-            WebElement table = wait.until(ExpectedConditions.presenceOfElementLocated(By.id("hostlinks")));
+            WebElement table = wait.until(ExpectedConditions.presenceOfElementLocated(By.className("table_link")));
             ArrayList<WebElement> tableRows = (ArrayList<WebElement>) table.findElements(By.tagName("tr"));
             tableRows.removeIf(row -> !(row.getText().contains("Teen Titans Go 0")) || row.getText().isEmpty());
 
@@ -52,6 +50,8 @@ public class ScrapingCLI {
             for (int i = 0; i < tableRows.size(); i++) {
                 logger.log(LogLevel.INFO, i + ": " + tableRows.get(i).findElement(By.tagName("td")).getText(), true);
             }
+
+            //getLastChoice(driver.getTitle());
 
             logger.log(LogLevel.INFO, "Insert the number of the episode: ", false);
             int choice = sc.nextInt();
@@ -68,8 +68,6 @@ public class ScrapingCLI {
             getfromUrlEncr(videoUrl.getDomAttribute("href"));
 
         } catch (NoSuchElementException e) {
-            throw new RuntimeException(e);
-        } catch (InterruptedException e) {
             throw new RuntimeException(e);
         } finally {
             if (driver != null) {
@@ -88,7 +86,10 @@ public class ScrapingCLI {
             driver.navigate().refresh();
 
             logger.log(LogLevel.INFO, "Identifying button and click on it...", true);
-            WebElement a = wait.until(ExpectedConditions.presenceOfNestedElementLocatedBy(By.id("ad_space"), By.tagName("a")));
+            WebElement a = wait.until(ExpectedConditions.presenceOfElementLocated(By.id("buttok"))).findElement(By.xpath("./.."));
+            if (!a.getTagName().equals("a")) {
+                throw new RuntimeException("ah bo");
+            }
 
             String videoUrl = a.getDomAttribute("href");
             logger.log(LogLevel.DEBUG, "HREF: " + a.getDomAttribute("href"), true);
@@ -188,12 +189,14 @@ public class ScrapingCLI {
             tmpDrv.manage().window().maximize();
 
             tmpDrv.get(urltorenew);
-            WebElement tmpA = tmpWait.until(ExpectedConditions.presenceOfNestedElementLocatedBy(By.id("ad_space"), By.tagName("a")));
+            WebElement tmpA = tmpWait.until(ExpectedConditions.presenceOfElementLocated(By.id("buttok")));
             if (tmpA.isDisplayed()) {
                 try {
                     logger.log(LogLevel.INFO, "Collected new cookies! Formatting and saving them...", true);
 
                     formatCookies(tmpDrv.manage().getCookies(), "cookies.txt");
+
+                    Thread.sleep(1000);
 
                     tmpDrv.close();
                     getfromUrlEncr(urltorenew);
@@ -201,10 +204,11 @@ public class ScrapingCLI {
                     throw new RuntimeException(e);
                 }
             }
-        } catch (NoSuchElementException e) {
+        } catch (TimeoutException e) {
             logger.log(LogLevel.ERROR, "Failed to renew cookies, the app will close.", true);
             tmpDrv.close();
-        } catch (Exception ignored) {
+        } catch (Exception err) {
+            throw new RuntimeException(err);
         }
     }
 
@@ -272,18 +276,25 @@ public class ScrapingCLI {
         }
     }
 
-    private static String getLastChoice(String show) {
+    /**
+     * <h1>!! Experimental !!</h1>
+     *
+     * @param show
+     */
+    private static void getLastChoice(String show) {
         try {
-            JsonReader jr = new JsonReader(new FileReader("history.json"));
-            String element = jr.getPath();
-
-            System.out.println(element);
+            FileReader fr = new FileReader("history.json");
+            JsonReader jr = new JsonReader(fr);
+            Map<String, Map<String, Double>> saved = gson.fromJson(jr, Map.class);
+            Map<String, Double> shwo = saved.get(show);
             jr.close();
+            fr.close();
+
+            logger.log(LogLevel.ERROR, shwo.get("episodeIndex"), true);
 
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
 
-        return "";
     }
 }

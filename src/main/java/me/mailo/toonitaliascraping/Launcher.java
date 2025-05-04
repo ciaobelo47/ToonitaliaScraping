@@ -5,7 +5,7 @@ import me.mailo.log.Logger;
 
 public class Launcher {
 
-    private static Logger logger = new Logger("ToonitaliaScraping");
+    private static final Logger logger = new Logger("ToonitaliaScraping");
 
     public static void main(String[] args) {
         if (args.length > 0) {
