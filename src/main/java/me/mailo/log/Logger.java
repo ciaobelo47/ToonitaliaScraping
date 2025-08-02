@@ -5,27 +5,32 @@ import java.util.Date;
 
 public class Logger {
     public String name;
+    public boolean enableDebug = false;
 
     public Logger(String name) {
         this.name = name;
     }
 
     public void log(int level, String msg, boolean newLine) {
-        String datePattern = "dd/MM/yyyy - HH:mm";
+        String datePattern = "dd/MM/yyyy - HH:mm:ss";
         SimpleDateFormat format = new SimpleDateFormat(datePattern);
         String time = format.format(new Date());
 
         if (newLine) {
             switch (level) {
                 case 0 -> System.out.printf("%s[%s] [%s] %s\n", ConsoleColors.GREEN_BRIGHT, time, name, msg);
-                case 1 -> System.out.printf("%s[%s] [%s] %s\n", ConsoleColors.CYAN, time, name, msg);
+                case 1 -> {
+                    if (enableDebug) System.out.printf("%s[%s] [%s] %s\n", ConsoleColors.CYAN_BRIGHT, time, name, msg);
+                }
                 case 2 -> System.out.printf("%s[%s] [%s] %s\n", ConsoleColors.YELLOW, time, name, msg);
                 case 3 -> System.out.printf("%s[%s] [%s] %s\n", ConsoleColors.RED, time, name, msg);
             }
         } else {
             switch (level) {
                 case 0 -> System.out.printf("%s[%s] [%s] %s", ConsoleColors.GREEN_BRIGHT, time, name, msg);
-                case 1 -> System.out.printf("%s[%s] [%s] %s", ConsoleColors.CYAN, time, name, msg);
+                case 1 -> {
+                    if (enableDebug) System.out.printf("%s[%s] [%s] %s", ConsoleColors.CYAN_BRIGHT, time, name, msg);
+                }
                 case 2 -> System.out.printf("%s[%s] [%s] %s", ConsoleColors.YELLOW, time, name, msg);
                 case 3 -> System.out.printf("%s[%s] [%s] %s", ConsoleColors.RED, time, name, msg);
             }

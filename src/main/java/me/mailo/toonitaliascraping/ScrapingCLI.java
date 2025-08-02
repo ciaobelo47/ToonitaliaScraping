@@ -2,7 +2,6 @@ package me.mailo.toonitaliascraping;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import com.google.gson.stream.JsonReader;
 import me.mailo.log.LogLevel;
 import me.mailo.log.Logger;
 import org.openqa.selenium.*;
@@ -13,7 +12,10 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.awt.*;
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.time.Duration;
@@ -41,9 +43,22 @@ public class ScrapingCLI {
             logger.log(LogLevel.INFO, "Trying to open initial page...", true);
             driver.get(url);
 
-            WebElement table = wait.until(ExpectedConditions.presenceOfElementLocated(By.className("table_link")));
+            WebElement titleWE = wait.until(ExpectedConditions.visibilityOfElementLocated(By.className("no-border")));
+            String rawTitle = titleWE.findElement(By.xpath("tbody/tr/td")).getText().replaceAll("-", " ").replaceAll("[^\\w\\s]", "");
+            String[] words = rawTitle.split("\\s+");
+            String sb = "";
+            for (int i = 1; i < words.length; i++) {
+                sb += words[i];
+                sb += " ";
+            }
+            sb = sb.trim();
+
+            logger.log(LogLevel.DEBUG, sb, true);
+
+            WebElement table = wait.until(ExpectedConditions.presenceOfElementLocated(By.id("hostslinks")));
             ArrayList<WebElement> tableRows = (ArrayList<WebElement>) table.findElements(By.tagName("tr"));
-            tableRows.removeIf(row -> !(row.getText().contains("Teen Titans Go 0")) || row.getText().isEmpty());
+            final String finalSb = sb;
+            tableRows.removeIf(row -> !(row.getText().toLowerCase().contains(finalSb.toLowerCase())) || row.getText().isEmpty());
 
             logger.log(LogLevel.DEBUG, "TableRows size: " + tableRows.size(), true);
 
@@ -51,16 +66,17 @@ public class ScrapingCLI {
                 logger.log(LogLevel.INFO, i + ": " + tableRows.get(i).findElement(By.tagName("td")).getText(), true);
             }
 
-            //getLastChoice(driver.getTitle());
+            if (getLastChoice(finalSb) != -1) {
+                logger.log(LogLevel.INFO, "The last watched episode of " + finalSb + " was at index: " + getLastChoice(finalSb), true);
+            }
 
             logger.log(LogLevel.INFO, "Insert the number of the episode: ", false);
             int choice = sc.nextInt();
             System.out.println();
 
-            saveLastChoice(driver.getTitle(), choice);
-
             logger.log(LogLevel.INFO, "Trying to get the url encrypter link...", true);
             WebElement ep = tableRows.get(choice);
+            saveLastChoice(finalSb, choice);
             WebElement videoUrl = ep.findElements(By.tagName("td")).get(1).findElement(By.tagName("a"));
 
             logger.log(LogLevel.INFO, "Found link: " + videoUrl.getDomAttribute("href"), true);
@@ -86,7 +102,7 @@ public class ScrapingCLI {
             driver.navigate().refresh();
 
             logger.log(LogLevel.INFO, "Identifying button and click on it...", true);
-            WebElement a = wait.until(ExpectedConditions.presenceOfElementLocated(By.id("buttok"))).findElement(By.xpath("./.."));
+            WebElement a = wait.until(ExpectedConditions.presenceOfElementLocated(By.id("butok"))).findElement(By.xpath("./.."));
             if (!a.getTagName().equals("a")) {
                 throw new RuntimeException("ah bo");
             }
@@ -107,7 +123,7 @@ public class ScrapingCLI {
 
         driver.get(url);
 
-        WebElement div = wait.until(ExpectedConditions.presenceOfElementLocated(By.id("iframe-container")));
+        WebElement div = wait.until(ExpectedConditions.presenceOfElementLocated(By.id("iframes-container")));
         logger.log(LogLevel.DEBUG, "Video embed URL: " + div.findElement(By.tagName("iframe")).getDomAttribute("src"), true);
         openLink(div.findElement(By.tagName("iframe")).getDomAttribute("src"));
     }
@@ -189,7 +205,7 @@ public class ScrapingCLI {
             tmpDrv.manage().window().maximize();
 
             tmpDrv.get(urltorenew);
-            WebElement tmpA = tmpWait.until(ExpectedConditions.presenceOfElementLocated(By.id("buttok")));
+            WebElement tmpA = tmpWait.until(ExpectedConditions.presenceOfElementLocated(By.id("butok")));
             if (tmpA.isDisplayed()) {
                 try {
                     logger.log(LogLevel.INFO, "Collected new cookies! Formatting and saving them...", true);
@@ -254,47 +270,22 @@ public class ScrapingCLI {
 
     /**
      * <h1>!! Experimental !!</h1>
+     * ma meno
      *
      * @param show
      * @param episodeIndex
      */
     private static void saveLastChoice(String show, int episodeIndex) {
-        HashMap<String, HashMap<String, Integer>> toSave = new HashMap<>();
-        HashMap<String, Integer> ep = new HashMap<>();
-        ep.put("episodeIndex", episodeIndex);
-        toSave.put(show, ep);
-
-        try {
-            File saveFile = new File("history.json");
-            PrintWriter pw = new PrintWriter(saveFile);
-
-            logger.log(LogLevel.INFO, "Writing history...", true);
-            pw.print(gson.toJson(toSave));
-            pw.close();
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
+        HistoryManager.saveLastChoice(show, episodeIndex);
     }
 
     /**
      * <h1>!! Experimental !!</h1>
+     * ma meno
      *
      * @param show
      */
-    private static void getLastChoice(String show) {
-        try {
-            FileReader fr = new FileReader("history.json");
-            JsonReader jr = new JsonReader(fr);
-            Map<String, Map<String, Double>> saved = gson.fromJson(jr, Map.class);
-            Map<String, Double> shwo = saved.get(show);
-            jr.close();
-            fr.close();
-
-            logger.log(LogLevel.ERROR, shwo.get("episodeIndex"), true);
-
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
-
+    private static int getLastChoice(String show) {
+        return HistoryManager.getLastChoice(show);
     }
 }

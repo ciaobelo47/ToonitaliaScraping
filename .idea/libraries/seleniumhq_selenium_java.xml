@@ -1,0 +1,81 @@
+<component name="libraryTable">
+  <library name="seleniumhq.selenium.java" type="repository">
+    <properties maven-id="org.seleniumhq.selenium:selenium-java:4.33.0" />
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/lib/selenium-java-4.33.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/selenium-api-4.33.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/jspecify-1.0.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/selenium-chrome-driver-4.33.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/auto-service-annotations-1.1.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/selenium-chromium-driver-4.33.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/selenium-json-4.33.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/selenium-manager-4.33.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/selenium-devtools-v135-4.33.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/selenium-devtools-v136-4.33.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/selenium-devtools-v137-4.33.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/selenium-edge-driver-4.33.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/selenium-firefox-driver-4.33.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/selenium-http-4.33.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/selenium-ie-driver-4.33.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/selenium-remote-driver-4.33.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/guava-33.4.8-jre.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/failureaccess-1.0.3.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/listenablefuture-9999.0-empty-to-avoid-conflict-with-guava.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/error_prone_annotations-2.36.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/j2objc-annotations-3.0.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/opentelemetry-api-1.50.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/opentelemetry-context-1.50.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/opentelemetry-exporter-logging-1.50.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/opentelemetry-sdk-common-1.50.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/opentelemetry-sdk-extension-autoconfigure-spi-1.50.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/opentelemetry-sdk-extension-autoconfigure-1.50.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/opentelemetry-sdk-trace-1.50.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/opentelemetry-sdk-1.50.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/opentelemetry-sdk-metrics-1.50.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/opentelemetry-sdk-logs-1.50.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/byte-buddy-1.17.5.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/selenium-os-4.33.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/commons-exec-1.4.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/selenium-safari-driver-4.33.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/selenium-support-4.33.0.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$PROJECT_DIR$/lib/selenium-java-4.33.0-sources.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/selenium-api-4.33.0-sources.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/jspecify-1.0.0-sources.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/selenium-chrome-driver-4.33.0-sources.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/auto-service-annotations-1.1.1-sources.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/selenium-chromium-driver-4.33.0-sources.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/selenium-json-4.33.0-sources.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/selenium-manager-4.33.0-sources.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/selenium-devtools-v135-4.33.0-sources.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/selenium-devtools-v136-4.33.0-sources.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/selenium-devtools-v137-4.33.0-sources.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/selenium-edge-driver-4.33.0-sources.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/selenium-firefox-driver-4.33.0-sources.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/selenium-http-4.33.0-sources.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/selenium-ie-driver-4.33.0-sources.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/selenium-remote-driver-4.33.0-sources.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/guava-33.4.8-jre-sources.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/failureaccess-1.0.3-sources.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/error_prone_annotations-2.36.0-sources.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/j2objc-annotations-3.0.0-sources.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/opentelemetry-api-1.50.0-sources.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/opentelemetry-context-1.50.0-sources.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/opentelemetry-exporter-logging-1.50.0-sources.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/opentelemetry-sdk-common-1.50.0-sources.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/opentelemetry-sdk-extension-autoconfigure-spi-1.50.0-sources.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/opentelemetry-sdk-extension-autoconfigure-1.50.0-sources.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/opentelemetry-sdk-trace-1.50.0-sources.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/opentelemetry-sdk-1.50.0-sources.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/opentelemetry-sdk-metrics-1.50.0-sources.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/opentelemetry-sdk-logs-1.50.0-sources.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/byte-buddy-1.17.5-sources.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/selenium-os-4.33.0-sources.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/commons-exec-1.4.0-sources.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/selenium-safari-driver-4.33.0-sources.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/selenium-support-4.33.0-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>
