@@ -5,9 +5,7 @@ import com.google.gson.GsonBuilder;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 
-import java.io.FileReader;
-import java.io.FileWriter;
-import java.io.PrintWriter;
+import java.io.*;
 import java.util.ArrayList;
 
 public class HistoryManager {
@@ -54,6 +52,8 @@ public class HistoryManager {
                 }
             }
 
+        } catch (IOException e) {
+            return -1;
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
@@ -63,6 +63,10 @@ public class HistoryManager {
 
     public static void saveLastChoice(String showTitle, int epIndex) {
         try {
+            File file = new File("history.json");
+            if (!file.exists()) {
+                file.createNewFile();
+            }
             FileReader fr = new FileReader("history.json");
             JsonReader jr = new JsonReader(fr);
 
