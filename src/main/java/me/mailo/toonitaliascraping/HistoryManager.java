@@ -16,6 +16,9 @@ public class HistoryManager {
             shows = showsToAss;
         }
 
+        @SerializedName("lastShow")
+        private String lastShow;
+
         @SerializedName("shows")
         private ArrayList<ShowData> shows;
     }
@@ -33,7 +36,21 @@ public class HistoryManager {
         private Double epIndex;
     }
 
-    public static int getLastChoice(String showTitle) {
+    public static String getLastShow() {
+        try {
+            FileReader fr = new FileReader("history.json");
+            JsonReader jr = new JsonReader(fr);
+
+        } catch (IOException e) {
+            return "-1";
+        } catch (Exception e) {
+            throw new RuntimeException();
+        }
+
+        return "-1";
+    }
+
+    public static int getShowIndex(String showTitle) {
         try {
             FileReader fr = new FileReader("history.json");
             JsonReader jr = new JsonReader(fr);
@@ -84,19 +101,21 @@ public class HistoryManager {
                     if (s.title.equals(showTitle)) {
                         found = true;
                         s.epIndex = (double) epIndex;
-
-                        pw.print(gson.toJson(history));
                     }
                 }
+
                 if (!found) {
                     history.shows.add(new ShowData(showTitle, (double) epIndex));
-                    pw.print(gson.toJson(history));
                 }
+
+                history.lastShow = showTitle;
+                pw.print(gson.toJson(history));
             } else {
                 ArrayList<ShowData> toSave = new ArrayList<>();
                 toSave.add(new ShowData(showTitle, (double) epIndex));
                 HistoryData newHistory = new HistoryData(toSave);
 
+                newHistory.lastShow = showTitle;
                 pw.print(gson.toJson(newHistory));
             }
 

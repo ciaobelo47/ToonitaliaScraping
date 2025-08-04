@@ -1,7 +1,5 @@
 package me.mailo.toonitaliascraping;
 
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
 import me.mailo.log.LogLevel;
 import me.mailo.log.Logger;
 import org.openqa.selenium.*;
@@ -27,7 +25,6 @@ public class ScrapingCLI {
     static FirefoxOptions opt = new FirefoxOptions();
     static WebDriver driver;
     static WebDriverWait wait;
-    static Gson gson = new GsonBuilder().setPrettyPrinting().create();
     static boolean headless = true;
 
     public static void scrape(String url) {
@@ -44,20 +41,10 @@ public class ScrapingCLI {
             driver.get(url);
 
             WebElement titleWE = wait.until(ExpectedConditions.visibilityOfElementLocated(By.className("no-border")));
-            String rawTitle = titleWE.findElement(By.xpath("tbody/tr/td")).getText().replaceAll("-", " ").replaceAll("[^\\w\\s]", "");
-            String[] words = rawTitle.split("\\s+");
-            String sb = "";
-            for (int i = 1; i < words.length; i++) {
-                sb += words[i];
-                sb += " ";
-            }
-            sb = sb.trim();
-
-            logger.log(LogLevel.DEBUG, sb, true);
+            final String finalSb = getCleanTitle(titleWE);
 
             WebElement table = wait.until(ExpectedConditions.presenceOfElementLocated(By.id("hostslinks")));
             ArrayList<WebElement> tableRows = (ArrayList<WebElement>) table.findElements(By.tagName("tr"));
-            final String finalSb = sb;
             tableRows.removeIf(row -> !(row.getText().toLowerCase().contains(finalSb.toLowerCase())) || row.getText().isEmpty());
 
             logger.log(LogLevel.DEBUG, "TableRows size: " + tableRows.size(), true);
@@ -66,17 +53,17 @@ public class ScrapingCLI {
                 logger.log(LogLevel.INFO, i + ": " + tableRows.get(i).findElement(By.tagName("td")).getText(), true);
             }
 
-            if (getLastChoice(finalSb) != -1) {
-                logger.log(LogLevel.INFO, "The last watched episode of " + finalSb + " was at index: " + getLastChoice(finalSb), true);
+            if (HistoryManager.getShowIndex(finalSb) != -1) {
+                logger.log(LogLevel.INFO, "The last watched episode of " + finalSb + " was at index: " + HistoryManager.getShowIndex(finalSb), true);
             }
 
             logger.log(LogLevel.INFO, "Insert the number of the episode: ", false);
             int choice = sc.nextInt();
-            System.out.println();
+            System.out.print('\n'); // UwU
 
             logger.log(LogLevel.INFO, "Trying to get the url encrypter link...", true);
             WebElement ep = tableRows.get(choice);
-            saveLastChoice(finalSb, choice);
+            HistoryManager.saveLastChoice(finalSb, choice);
             WebElement videoUrl = ep.findElements(By.tagName("td")).get(1).findElement(By.tagName("a"));
 
             logger.log(LogLevel.INFO, "Found link: " + videoUrl.getDomAttribute("href"), true);
@@ -91,6 +78,20 @@ public class ScrapingCLI {
                 driver.quit();
             }
         }
+    }
+
+    private static String getCleanTitle(WebElement titleWE) {
+        String rawTitle = titleWE.findElement(By.xpath("tbody/tr/td")).getText().replaceAll("-", " ").replaceAll("[^\\w\\s]", "");
+        String[] words = rawTitle.split("\\s+");
+        String sb = "";
+        for (int i = 1; i < words.length; i++) {
+            sb += words[i];
+            sb += " ";
+        }
+        sb = sb.trim();
+
+        logger.log(LogLevel.DEBUG, sb, true);
+        return sb;
     }
 
     private static void getfromUrlEncr(String url) {
@@ -266,26 +267,5 @@ public class ScrapingCLI {
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
-    }
-
-    /**
-     * <h1>!! Experimental !!</h1>
-     * ma meno
-     *
-     * @param show
-     * @param episodeIndex
-     */
-    private static void saveLastChoice(String show, int episodeIndex) {
-        HistoryManager.saveLastChoice(show, episodeIndex);
-    }
-
-    /**
-     * <h1>!! Experimental !!</h1>
-     * ma meno
-     *
-     * @param show
-     */
-    private static int getLastChoice(String show) {
-        return HistoryManager.getLastChoice(show);
     }
 }

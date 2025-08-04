@@ -3,13 +3,16 @@ package me.mailo.toonitaliascraping;
 import me.mailo.log.LogLevel;
 import me.mailo.log.Logger;
 import me.mailo.toonitaliascraping.utils.ConfirmBox;
+import me.mailo.toonitaliascraping.utils.InfoBox;
 
 public class Launcher {
-
     private static final Logger logger = new Logger("ToonitaliaScraping");
-    private static final String url = ConfirmBox.collectUrl();
+    private static String url;
 
     public static void main(String[] args) {
+        InfoBox.remindShow();
+        url = ConfirmBox.collectUrl();
+
         if (args.length == 1) {
             switchArgs(args[0], true);
         } else if (args.length == 2) {
