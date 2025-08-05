@@ -15,7 +15,7 @@ import java.io.InputStream;
 import java.net.URL;
 
 public class Launcher {
-    private static final String version = "1.5.1-BETA";
+    private static final String version = "1.5.2-BETA";
     private static final Logger logger = new Logger("ToonitaliaScraping");
     private static String url;
 

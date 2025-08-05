@@ -45,7 +45,11 @@ public class HistoryManager {
             HistoryData hd = gson.fromJson(fr, HistoryData.class);
 
             fr.close();
-            return hd.lastShow;
+            if (hd != null && hd.lastShow != null) {
+                return hd.lastShow;
+            } else {
+                return "-1";
+            }
         } catch (IOException e) {
             return "-1";
         } catch (Exception e) {

@@ -4,11 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0b862792-225b-4ef0-baef-3a55cde2c2d2" name="Changes" comment="Fixed Variable">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/mailo/toonitaliascraping/Launcher.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/mailo/toonitaliascraping/Launcher.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/mailo/toonitaliascraping/utils/Downloader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/mailo/toonitaliascraping/utils/Downloader.java" afterDir="false" />
-    </list>
+    <list default="true" id="0b862792-225b-4ef0-baef-3a55cde2c2d2" name="Changes" comment="Fixed a bug" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -325,7 +321,15 @@
       <option name="project" value="LOCAL" />
       <updated>1754413626710</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="Fixed a bug">
+      <option name="closed" value="true" />
+      <created>1754414413436</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1754414413436</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="UpdateCopyrightCheckinHandler">
@@ -359,7 +363,8 @@
     <MESSAGE value="Updated Version" />
     <MESSAGE value="Added Automatic Updates" />
     <MESSAGE value="Fixed Variable" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixed Variable" />
+    <MESSAGE value="Fixed a bug" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed a bug" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
