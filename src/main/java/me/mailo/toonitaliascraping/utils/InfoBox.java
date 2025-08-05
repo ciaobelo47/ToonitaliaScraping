@@ -5,6 +5,10 @@ import me.mailo.toonitaliascraping.HistoryManager;
 import javax.swing.*;
 
 public class InfoBox {
+    public static void restartProgramMsg() {
+        JOptionPane.showMessageDialog(null, "Restart the program to use it!", "Info", JOptionPane.WARNING_MESSAGE);
+    }
+
     public static String remindShow() {
         String lastShow = HistoryManager.getLastShow();
 
