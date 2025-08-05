@@ -10,8 +10,12 @@ public class Launcher {
     private static String url;
 
     public static void main(String[] args) {
-        InfoBox.remindShow();
-        url = ConfirmBox.collectUrl();
+        String tmp = InfoBox.remindShow();
+        if (!tmp.equals("-1")) {
+            url = tmp;
+        } else {
+            url = ConfirmBox.collectUrl();
+        }
 
         if (args.length == 1) {
             switchArgs(args[0], true);

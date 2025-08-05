@@ -63,7 +63,7 @@ public class ScrapingCLI {
 
             logger.log(LogLevel.INFO, "Trying to get the url encrypter link...", true);
             WebElement ep = tableRows.get(choice);
-            HistoryManager.saveLastChoice(finalSb, choice);
+            HistoryManager.saveLastChoice(url, finalSb, choice);
             WebElement videoUrl = ep.findElements(By.tagName("td")).get(1).findElement(By.tagName("a"));
 
             logger.log(LogLevel.INFO, "Found link: " + videoUrl.getDomAttribute("href"), true);
