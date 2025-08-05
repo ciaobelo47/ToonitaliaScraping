@@ -4,11 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0b862792-225b-4ef0-baef-3a55cde2c2d2" name="Changes" comment="Updated Version">
-      <change afterPath="$PROJECT_DIR$/src/main/java/me/mailo/toonitaliascraping/utils/Downloader.java" afterDir="false" />
+    <list default="true" id="0b862792-225b-4ef0-baef-3a55cde2c2d2" name="Changes" comment="Fixed Variable">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/me/mailo/toonitaliascraping/Launcher.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/mailo/toonitaliascraping/Launcher.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/mailo/toonitaliascraping/utils/InfoBox.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/mailo/toonitaliascraping/utils/InfoBox.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/mailo/toonitaliascraping/utils/Downloader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/mailo/toonitaliascraping/utils/Downloader.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -310,7 +309,23 @@
       <option name="project" value="LOCAL" />
       <updated>1754412196012</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="Added Automatic Updates">
+      <option name="closed" value="true" />
+      <created>1754413587644</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1754413587644</updated>
+    </task>
+    <task id="LOCAL-00019" summary="Fixed Variable">
+      <option name="closed" value="true" />
+      <created>1754413626710</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1754413626710</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="UpdateCopyrightCheckinHandler">
@@ -342,7 +357,9 @@
     <MESSAGE value="Working On Update" />
     <MESSAGE value="Added Last Show Resume" />
     <MESSAGE value="Updated Version" />
-    <option name="LAST_COMMIT_MESSAGE" value="Updated Version" />
+    <MESSAGE value="Added Automatic Updates" />
+    <MESSAGE value="Fixed Variable" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed Variable" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
   </component>

@@ -7,11 +7,14 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.PrintWriter;
+import java.net.ConnectException;
 import java.net.URL;
 import java.nio.channels.Channels;
 import java.nio.channels.ReadableByteChannel;
 
 public class Downloader {
+    private static int updateTries = 0;
+
     public static void update(String newVersion) throws InterruptedException {
         try {
             File downloadedFile = new File("ToonitaliaScraping-" + newVersion + "-jar-with-dependencies.jar");
@@ -40,6 +43,19 @@ public class Downloader {
 
             InfoBox.restartProgramMsg();
             System.exit(0);
+        } catch (ConnectException ce) {
+            updateTries++;
+            if (updateTries > 4) {
+                Launcher.getLogger().log(LogLevel.ERROR, "Updating Failed. Check Internet Connection or report a bug. Error message: ", true);
+                ce.printStackTrace();
+                Thread.sleep(500);
+                Launcher.getLogger().log(LogLevel.WARN, "The program will resume...", true);
+
+                return;
+            }
+
+            Launcher.getLogger().log(LogLevel.WARN, "Update Attempt n." + updateTries + "failed. Retrying...", true);
+            update(newVersion);
         } catch (FileNotFoundException fnfe) {
             Launcher.getLogger().log(LogLevel.ERROR, "Updating Failed. Check Internet Connection or report a bug. Error message: ", true);
             fnfe.printStackTrace();
