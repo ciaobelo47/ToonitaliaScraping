@@ -15,11 +15,12 @@ import java.io.InputStream;
 import java.net.URL;
 
 public class Launcher {
-    private static final String version = "1.5.2-BETA";
+    private static final String version = "1.5.3-BETA";
     private static final Logger logger = new Logger("ToonitaliaScraping");
-    private static String url;
 
     public static void main(String[] args) {
+        String url = "";
+
         if (args.length == 1) {
             switchArgs(args[0]);
         } else if (args.length == 2) {

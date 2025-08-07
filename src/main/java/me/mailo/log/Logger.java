@@ -35,6 +35,8 @@ public class Logger {
                 case 3 -> System.out.printf("%s[%s] [%s] %s", ConsoleColors.RED, time, name, msg);
             }
         }
+
+        System.gc();
     }
 
     public void log(LogLevel level, String msg, boolean newLine) {

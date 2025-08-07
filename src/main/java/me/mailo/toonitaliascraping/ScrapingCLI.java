@@ -43,7 +43,15 @@ public class ScrapingCLI {
             WebElement titleWE = wait.until(ExpectedConditions.visibilityOfElementLocated(By.className("no-border")));
             final String finalSb = getCleanTitle(titleWE);
 
-            WebElement table = wait.until(ExpectedConditions.presenceOfElementLocated(By.id("hostslinks")));
+            WebElement table = null;
+            try {
+                table = wait.until(ExpectedConditions.presenceOfElementLocated(By.id("hostslinks")));
+            } catch (TimeoutException te) {
+                table = wait.until(ExpectedConditions.presenceOfElementLocated(By.id("hostlinks")));
+            } catch (Exception e) {
+                throw new RuntimeException(e);
+            }
+
             ArrayList<WebElement> tableRows = (ArrayList<WebElement>) table.findElements(By.tagName("tr"));
             tableRows.removeIf(row -> !(row.getText().toLowerCase().contains(finalSb.toLowerCase())) || row.getText().isEmpty());
 
@@ -124,7 +132,15 @@ public class ScrapingCLI {
 
         driver.get(url);
 
-        WebElement div = wait.until(ExpectedConditions.presenceOfElementLocated(By.id("iframes-container")));
+        WebElement div = null;
+        try {
+            div = wait.until(ExpectedConditions.presenceOfElementLocated(By.id("iframes-container")));
+        } catch (TimeoutException te) {
+            div = wait.until(ExpectedConditions.presenceOfElementLocated(By.id("iframes-containers")));
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+
         logger.log(LogLevel.DEBUG, "Video embed URL: " + div.findElement(By.tagName("iframe")).getDomAttribute("src"), true);
         openLink(div.findElement(By.tagName("iframe")).getDomAttribute("src"));
     }

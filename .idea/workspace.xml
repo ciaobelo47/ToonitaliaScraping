@@ -4,7 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0b862792-225b-4ef0-baef-3a55cde2c2d2" name="Changes" comment="Fixed a bug" />
+    <list default="true" id="0b862792-225b-4ef0-baef-3a55cde2c2d2" name="Changes" comment="Fixed a bug">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/mailo/log/Logger.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/mailo/log/Logger.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/mailo/toonitaliascraping/Launcher.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/mailo/toonitaliascraping/Launcher.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/mailo/toonitaliascraping/ScrapingCLI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/mailo/toonitaliascraping/ScrapingCLI.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -44,6 +49,9 @@
     &quot;accountId&quot;: &quot;1f4e0f5a-9b74-480d-9340-3ebd5ad963f3&quot;
   }
 }</component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="Security Analysis" />
+  </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 3
 }</component>
@@ -54,7 +62,7 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
-    "Application.Launcher [enable-debug].executor": "Run",
+    "Application.Launcher [enable-debug].executor": "Profiler#1",
     "Application.Launcher [no-headless & enable-debug].executor": "Run",
     "Application.Launcher [no-headless].executor": "Run",
     "Application.Launcher.executor": "Run",
@@ -329,7 +337,15 @@
       <option name="project" value="LOCAL" />
       <updated>1754414413436</updated>
     </task>
-    <option name="localTasksCounter" value="21" />
+    <task id="LOCAL-00021" summary="Fixed a bug">
+      <option name="closed" value="true" />
+      <created>1754414882699</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1754414882699</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="UpdateCopyrightCheckinHandler">
